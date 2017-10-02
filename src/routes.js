@@ -13,12 +13,12 @@
 		$stateProvider
 		.state('home', {
                 url: '/home',
-                templateUrl: 'templates/home.template.html'
+                templateUrl: './templates/home.template.html'
             })
 		.state('categories',{
 			url:'/categories',
 			controller: 'categoriesCtrl as mainList',
-			templateUrl:'templates/categories.template.html',
+			templateUrl:'./templates/categories.template.html',
 			resolve: {
 				categories:['MenuDataService' , function(MenuDataService){
 					return MenuDataService.getAllCategories().then(function(result){
@@ -30,7 +30,7 @@
 		
                .state('items', {
                 url: '/items/{shortname}',
-                templateUrl: 'templates/items.template.html',
+                templateUrl: './templates/items.template.html',
                 controller: 'itemsCtrl as  itemList',
                   resolve: {
                     itemsList: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
